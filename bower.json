@@ -1,0 +1,26 @@
+{
+  "name": "COMP1006 - W2017",
+  "homepage": "https://github.com/teban004/COMP1006---W2017",
+  "authors": [
+    "Esteban Arrangoiz <esteban.arrangoiz@gmail.com>"
+  ],
+  "description": "PHP with MySQL",
+  "main": "",
+  "keywords": [
+    "PHP",
+    "MySQL"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.2.4",
+    "bootstrap": "^5.1.3",
+    "font-awesome": "^5.15.4"
+  }
+}
