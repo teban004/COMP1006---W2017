@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,6 @@
     <!-- CSS Section -->
     <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Scripts/lib/font-awesome/css/fontawesome.css">
-    <link rel="stylesheet" href="./Content/app.css">
-
-
-
-
     <link rel="stylesheet" href="./Content/app.css">
         <rel></rel>
     </link>
@@ -26,6 +22,22 @@
         </div>
         
     </div>
+
+<?php
+
+    $dsn = 'mysql:host=localhost;dbname=gameDB';
+    $userName = 'gameusr';
+    $password = 'EASportsKonami-2022';
+
+    try {
+        $db = new PDO($dsn, $userName, $password);
+    }
+    catch(PDOException $e) {
+        $message = $e->getMessage();
+    }
+
+?>
+
 
     <!-- JavaScript Section-->
     <script src="./Scripts/lib/jquery/dist/jquery.min.js"></script>
