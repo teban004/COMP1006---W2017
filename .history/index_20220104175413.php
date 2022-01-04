@@ -18,7 +18,18 @@
                 <h1>Video Games</h1>
 
                 <?php
-                    require_once('database.php');
+
+                    $dsn = 'mysql:host=localhost;dbname=gameDB';
+                    $userName = 'gameusr';
+                    $password = 'EASportsKonami-2022';
+
+                    try {
+                        $db = new PDO($dsn, $userName, $password);
+                    }
+                    catch(PDOException $e) {
+                        $message = $e->getMessage();
+                        echo "An error occurred: " . $message;
+                    }
 
                     $query = "SELECT * FROM Games";
                     $statement = $db->prepare($query);
@@ -33,8 +44,8 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Cost</th>
-                        <th></th>
-                        <th></th>
+                        <th><i class="fa fa-car"></i></th>
+                        <th><i class="fa-regular fa-pen-to-square"></i></th>
                     </tr>
 
                 <?php
@@ -44,8 +55,8 @@
                         echo "<td>" . $game['Id'] . "</td>";
                         echo "<td>" . $game['Name'] . "</td>";
                         echo "<td>$" . $game['Cost'] . "</td>";
-                        echo '<td><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</button></td>';
-                        echo '<td><button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button></td>';
+                        echo '<td><button class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i>Edit</button></td>';
+                        echo '<td><button class="btn btn-danger"><i class="fa-regular fa-trash-can"></i>Delete</button></td>';
                         echo "</tr>";
                     }
                     

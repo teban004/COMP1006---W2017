@@ -7,8 +7,7 @@
     <title>COMP1006</title>
     <!-- CSS Section -->
     <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <!-- <link rel="stylesheet" href="./Scripts/lib/font-awesome/css/fontawesome.css"/> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./Scripts/lib/font-awesome/css/fontawesome.css"/>
     <link rel="stylesheet" href="./Content/app.css"/>
 </head>
 <body>
@@ -18,7 +17,18 @@
                 <h1>Video Games</h1>
 
                 <?php
-                    require_once('database.php');
+
+                    $dsn = 'mysql:host=localhost;dbname=gameDB';
+                    $userName = 'gameusr';
+                    $password = 'EASportsKonami-2022';
+
+                    try {
+                        $db = new PDO($dsn, $userName, $password);
+                    }
+                    catch(PDOException $e) {
+                        $message = $e->getMessage();
+                        echo "An error occurred: " . $message;
+                    }
 
                     $query = "SELECT * FROM Games";
                     $statement = $db->prepare($query);
@@ -40,12 +50,12 @@
                 <?php
                     
                     foreach ($games as $game) {
-                        echo "\n<tr>";
+                        echo "<tr>";
                         echo "<td>" . $game['Id'] . "</td>";
                         echo "<td>" . $game['Name'] . "</td>";
                         echo "<td>$" . $game['Cost'] . "</td>";
-                        echo '<td><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</button></td>';
-                        echo '<td><button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button></td>';
+                        echo '<td><button class="btn btn-primary">Edit</button></td>';
+                        echo '<td><button class="btn btn-danger">Delete</button></td>';
                         echo "</tr>";
                     }
                     
