@@ -1,10 +1,15 @@
+<?php
+
+    $gameID = $_GET["gameID"];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>COMP1006</title>
+    <title>Game Details</title>
     <!-- CSS Section -->
 
     <!-- <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap.min.css"/> -->
@@ -19,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
-                <h1>Video Games</h1>
+                <h1>Game Details</h1>
 
                 <?php
                     require_once('database.php');
@@ -30,6 +35,22 @@
                     $games = $statement->fetchAll(); // returns an array for each row
 
                 ?>
+
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="IDTextField">Game ID</label>
+                        <input type="text" class="form-control" id="IDTextField" placeholder="Game ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="NameTextField">Game Name</label>
+                        <input type="text" class="form-control" id="NameTextField" placeholder="Game Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="CostTextField">Game Cost</label>
+                        <input type="text" class="form-control" id="CostTextField" placeholder="Game Cost" required>
+                    </div>
+                    <button type="submit" class="btn btn-default">Update</button>
+                </form>
 
                 <table class="table table-striped">
                     <caption>Games List</caption>

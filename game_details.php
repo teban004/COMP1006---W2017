@@ -1,10 +1,15 @@
+<?php
+
+    $gameID = $_GET["gameID"];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>COMP1006</title>
+    <title>Game Details</title>
     <!-- CSS Section -->
 
     <!-- <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap.min.css"/> -->
@@ -19,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
-                <h1>Video Games</h1>
+                <h1>Game Details</h1>
 
                 <?php
                     require_once('database.php');
@@ -31,31 +36,23 @@
 
                 ?>
 
-                <table class="table table-striped">
-                    <caption>Games List</caption>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Cost</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="IDTextField">Game ID</label>
+                        <input type="text" class="form-control" id="IDTextField" placeholder="Game ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="NameTextField">Game Name</label>
+                        <input type="text" class="form-control" id="NameTextField" placeholder="Game Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="CostTextField">Game Cost</label>
+                        <input type="text" class="form-control" id="CostTextField" placeholder="Game Cost" required>
+                    </div>
+                    <button type="submit" id="UpdateButton" class="btn btn-default">Update</button>
+                </form>
 
-                <?php foreach ($games as $game) : ?>
-                    
-                    <tr>
-                        <td><?=$game['Id']?></td>
-                        <td><?=$game['Name']?></td>
-                        <td>$<?=$game['Cost']?></td>
-                        <td><a class="btn btn-primary" href="game_details.php?<?='gameID='.$game['Id']?>"><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</button></a></td>
-                        <td><a class="btn btn-danger" href=""><button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button></a></td>
-                    </tr>
-                    
-                <?php endforeach;?>
-
-                </table>
-
-        </div>
+            </div>
         </div>
         
     </div>
