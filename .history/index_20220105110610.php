@@ -47,7 +47,7 @@
                         <td><?=$game['Id']?></td>
                         <td><?=$game['Name']?></td>
                         <td>$<?=$game['Cost']?></td>
-                        <td><a class="btn btn-primary" href="Game_Details.php?<?='Game_ID='.$game['Id']?>"><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</button></a></td>
+                        <td><a class="btn btn-primary" href="Game_Details.php?"><button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</button></a></td>
                         <td><a class="btn btn-danger" href=""><button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button></a></td>
                     </tr>
                     
