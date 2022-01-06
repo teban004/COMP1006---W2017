@@ -7,7 +7,7 @@
     $statement = $db->prepare($query);
     $statement->bindValue(':game_id', $gameID);
     $statement->execute(); // run on the db server
-    $game = $statement->fetch(); // returns an array for each row
+    $games = $statement->fetch(); // returns an array for each row
     $statement->closeCursor();
 ?>
 
@@ -36,15 +36,15 @@
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="IDTextField">Game ID</label>
-                        <input type="text" class="form-control" id="IDTextField" placeholder="Game ID" value="<?= $game['Id'] ?>">
+                        <input type="text" class="form-control" id="IDTextField" placeholder="Game ID">
                     </div>
                     <div class="form-group">
                         <label for="NameTextField">Game Name</label>
-                        <input type="text" class="form-control" id="NameTextField" placeholder="Game Name" value="<?= $game['Name'] ?>" required>
+                        <input type="text" class="form-control" id="NameTextField" placeholder="Game Name" required>
                     </div>
                     <div class="form-group">
                         <label for="CostTextField">Game Cost</label>
-                        <input type="text" class="form-control" id="CostTextField" placeholder="Game Cost" value="<?= $game['Cost'] ?>" required>
+                        <input type="text" class="form-control" id="CostTextField" placeholder="Game Cost" required>
                     </div>
                     <button type="submit" id="UpdateButton" class="btn btn-default">Update</button>
                 </form>
