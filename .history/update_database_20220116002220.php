@@ -14,7 +14,7 @@ try{
     $statement->bindValue(':game_cost', $gameCost);
     $statement->execute(); // run on the db server
 }
-catch(PDOException $e) {
+catch(Exception $e) {
     $message = $e->getMessage();
     echo "An error occurred: " . $message;
 }

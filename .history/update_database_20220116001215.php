@@ -14,7 +14,7 @@ try{
     $statement->bindValue(':game_cost', $gameCost);
     $statement->execute(); // run on the db server
 }
-catch(PDOException $e) {
+catch(Exception $e) {
     $message = $e->getMessage();
     echo "An error occurred: " . $message;
 }
@@ -25,7 +25,31 @@ catch(PDOException $e) {
     $statement->execute(); // run on the db server
     $game = $statement->fetch(); // returns an array for each row
     $statement->closeCursor();
-
-    include 'index.php';
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update database</title>
+</head>
+<body>
+
+New values:
+<div class="form-group">
+                        <label for="IDTextField">Game ID</label>
+                        <?= $game['Id'] ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="NameTextField">Game Name</label>
+                        <?= $game['Name'] ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="CostTextField">Game Cost</label>
+                        <?= $game['Cost'] ?>
+                    </div>
+
+</body>
+</html>
