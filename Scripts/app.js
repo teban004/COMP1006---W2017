@@ -2,20 +2,12 @@
 // IIFE - Immediately Invoked Function Expression
 
 (function(){
+    console.log("App started");
 
-<<<<<<< HEAD
-    $(".btn-danger").click(function(){
-        console.log("Red button clicked!");
+    $(".btn-danger").click(function(event){
+        if(!confirm("Are you sure?")) {
+            event.preventDefault();
+            window.location.assign('./');
+        }
     });
-
-    
 })();
-=======
-    function init() {
-        console.log("App Started");
-
-    }
-
-    
-})
->>>>>>> 004cbb7da0aba1bb85ddf56f375c4922e7858324

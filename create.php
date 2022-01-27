@@ -23,13 +23,8 @@
         $statement->execute(); // run on the db server
         $game = $statement->fetch(); // returns an array for each row
         $statement->closeCursor();
-<<<<<<< HEAD
 
         header('Location: ./'); // redirect to the current base folder
 
         
-=======
-    
-        include 'index.php';
->>>>>>> 004cbb7da0aba1bb85ddf56f375c4922e7858324
 ?>
