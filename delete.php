@@ -15,6 +15,6 @@ catch(PDOException $e) {
     echo "An error occurred: " . $message;
 }
 
-    include 'index.php';
+header('Location: ./'); // redirect to the current base folder
 ?>
 

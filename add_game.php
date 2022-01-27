@@ -1,16 +1,3 @@
-<?php
-    require_once('database.php');
-
-    $gameID = $_GET["gameID"]; // assigns the gameID from the URL
-
-    $query = "SELECT * FROM Games WHERE Id = :game_id";
-    $statement = $db->prepare($query);
-    $statement->bindValue(':game_id', $gameID);
-    $statement->execute(); // run on the db server
-    $game = $statement->fetch(); // returns an array for each row
-    $statement->closeCursor();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,20 +20,16 @@
             <div class="col-md-offset-3 col-md-6">
                 <h1>Game Details</h1>
 
-                <form action="update_database.php" method="POST">
-                    <div class="form-group">
-                        <label for="IDTextField">Game ID</label>
-                        <input type="text" class="form-control" id="IDTextField" placeholder="Game ID" value="<?= $game['Id'] ?>">
-                    </div>
+                <form action="create.php" method="post">
                     <div class="form-group">
                         <label for="NameTextField">Game Name</label>
-                        <input type="text" class="form-control" id="NameTextField" placeholder="Game Name" value="<?= $game['Name'] ?>" required>
+                        <input type="text" class="form-control" id="NameTextField" name="NameTextField" placeholder="Game Name" required>
                     </div>
                     <div class="form-group">
                         <label for="CostTextField">Game Cost</label>
-                        <input type="text" class="form-control" id="CostTextField" placeholder="Game Cost" value="<?= $game['Cost'] ?>" required>
+                        <input type="text" class="form-control" id="CostTextField" name="CostTextField" placeholder="Game Cost" required>
                     </div>
-                    <button type="submit" id="UpdateButton" class="btn btn-default">Update</button>
+                    <button type="submit" id="CreateButton" class="btn btn-default">Create game</button>
                 </form>
 
             </div>

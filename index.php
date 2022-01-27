@@ -30,6 +30,8 @@
                     $games = $statement->fetchAll(); // returns an array for each row
 
                 ?>
+                
+                <a class="btn btn-secondary" href="add_game.php"><button class="btn btn-secondary"><i class="fa fa-plus-square-o"></i> Add game</button></a>
 
                 <table class="table table-striped">
                     <caption>Games List</caption>
