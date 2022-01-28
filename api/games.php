@@ -6,7 +6,7 @@
             require_once '../database.php';
 
             $games = array();
-            $query = "SELECT * FROM Games WHERE `Id` LIKE :gameID ORDER BY `Id` DESC LIMIT 0, :limitResults;";
+            $query = "SELECT * FROM Games WHERE `Id` LIKE :gameID ORDER BY `Id` ASC LIMIT 0, :limitResults;";
             
             try {
                 $statement = $db->prepare($query);
@@ -19,9 +19,9 @@
                 foreach( $gamesResults as $gameRow) {
                     $i++;
                     $games[$i] = array(
-                        'game_id' => $gameRow['Id'],
-                        'game_name'    => $gameRow['Name'],
-                        'game_cost'            => $gameRow['Cost']
+                        'game_id'    => $gameRow['Id'],
+                        'game_name'  => $gameRow['Name'],
+                        'game_cost'  => $gameRow['Cost']
                     );
                 }
 
